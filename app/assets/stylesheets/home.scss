@@ -1,0 +1,20 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$font-stack: Trebuchet MS;
+$primary-color: #00BFFF;
+$font-color: #ffffff;
+
+body {
+  font: 100% $font-stack;
+  background-color: $primary-color;
+  color: $font-color;
+  font-size: 111px;
+}
+
+.logo{
+   font: $font-stack;
+   font-size: 28px;
+   color: $font-color;
+}

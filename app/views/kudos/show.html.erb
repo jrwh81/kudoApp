@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @kudo.description %>
+</p>
+
+<p>
+  <strong>Organization:</strong>
+  <%= @kudo.organization_id %>
+</p>
+
+<p>
+  <strong>Given by:</strong>
+  <%= @kudo.given_by_id %>
+</p>
+
+<%= link_to 'Edit', edit_kudo_path(@kudo) %> |
+<%= link_to 'Back', kudos_path %>
