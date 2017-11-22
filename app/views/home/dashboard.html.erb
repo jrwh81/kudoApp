@@ -1,0 +1,59 @@
+<div class="row">
+   <div class="col-md-6 offset-md-3">
+      <h1 style="text-align: center"><%= @organization %> - Dashboard</h1>
+   </div>  
+</div>
+<div class="row copy-text">
+   <div class="col-md-6 offset-md-3">
+      <h2 style="text-align: center">My Kudos!</h2>
+      <% if !@kudos.blank? %>
+         <table class="table">
+           <thead>
+             <tr>
+               <th>Given By:</th>
+               <th>Description:</th>
+               <th>Date:</th>
+             </tr>
+           </thead>
+           <tbody>
+            <% @kudos.each do |k| %>
+             <tr>
+               <td><%= Member.find(k.given_by_id).email %></td>
+               <td><%= k.description %></td>
+               <td><%= k.created_at.to_date %></td>
+             </tr>
+            <% end %>
+           </tbody>
+         </table>
+      <% end %>
+      <br />         
+   </div>
+</div>
+<div class="row copy-text">
+   <div class="col-md-6 offset-md-3">
+      <h2 style="text-align: center">Give a Kudos!</h2>
+      <h3 style="text-align: center">Count - <%= current_member.kudos_count %></h3>
+      <% if current_member.organization.members.count > 0 %>
+         <table class="table">
+           <thead>
+             <tr>
+               <th>Email:</th>
+               <th>Kudos Count:</th>
+               <th>Actions:</th>
+             </tr>
+           </thead>
+           <tbody>
+            <% @members.each do |m| %>
+             <% unless m == current_member %>
+                <tr>
+                  <td><%= Member.find(m.id).email %></td>
+                  <td ><%= m.kudos_count %></td>
+                  <td><%= link_to("Give Kudos!", new_kudo_path(member_id: m.id), :class => "copy-text") %></td>
+                </tr>
+             <% end %>
+            <% end %>
+           </tbody>
+         </table>
+      <% end %>         
+   </div>
+</div>

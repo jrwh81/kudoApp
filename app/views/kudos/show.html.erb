@@ -1,19 +1,15 @@
-<p id="notice"><%= notice %></p>
+<div class="row copy-text">
+   <div class="col-md-12 offset-md-6">
+      <p id="notice primary"><%= notice %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @kudo.description %>
-</p>
+      <p>
+        <strong>Description:</strong>
+        <%= @kudo.description %>
+      </p>
 
-<p>
-  <strong>Organization:</strong>
-  <%= @kudo.organization_id %>
-</p>
-
-<p>
-  <strong>Given by:</strong>
-  <%= @kudo.given_by_id %>
-</p>
-
-<%= link_to 'Edit', edit_kudo_path(@kudo) %> |
-<%= link_to 'Back', kudos_path %>
+      <p>
+        <strong>Given by:</strong>
+        <%= Member.find(@kudo.given_by_id).email %>
+      </p>
+   </div>
+</div>

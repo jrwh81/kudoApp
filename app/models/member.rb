@@ -4,4 +4,8 @@ class Member < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable
+
+  has_many :kudos
+  belongs_to :organization
+
 end

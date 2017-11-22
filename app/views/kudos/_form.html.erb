@@ -1,29 +1,26 @@
-<%= form_for(@kudo) do |f| %>
-  <% if @kudo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@kudo.errors.count, "error") %> prohibited this kudo from being saved:</h2>
-
-      <ul>
-      <% @kudo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="row copy-text">
+  <div class="col-md-6 offset-md-3">
+    <%= form_for(@kudo) do |f| %>
+      <% if @kudo.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@kudo.errors.count, "error") %> prohibited this kudo from being saved:</h2>
+          <ul>
+            <% @kudo.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+      <div class="field">
+        <%= f.label :write_your_description_here %><br>
+        <%= f.text_area :description %>
+      </div>
+      <%= f.hidden_field :member_id, :value => params[:member_id] %>
+      <%= f.hidden_field :given_by_id, :value => current_member.id %>
+      <div class="actions">
+        <%= f.submit %>
+      </div>      
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :organization_id %><br>
-    <%= f.number_field :organization_id %>
-  </div>
-  <div class="field">
-    <%= f.label :given_by_id %><br>
-    <%= f.text_field :given_by_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

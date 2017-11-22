@@ -1,5 +1,8 @@
-<h1>New Kudo</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', kudos_path %>
+<div class="row copy-text">
+   <div class="col-md-6 offset-md-3">
+      <h2 style="text-align: center">New Kudos!</h2>
+      <h3 style="text-align: center">For: <%= Member.find(params[:member_id]).email %></h3>
+      <br />
+      <%= render 'form' %>
+   </div>
+</div>

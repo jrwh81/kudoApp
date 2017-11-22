@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171121052115) do
+ActiveRecord::Schema.define(version: 20171122031110) do
 
   create_table "kudos", force: :cascade do |t|
-    t.text     "description",     limit: 65535
-    t.integer  "organization_id", limit: 4
-    t.integer  "given_by_id",     limit: 4
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.text     "description", limit: 65535
+    t.integer  "given_by_id", limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "member_id",   limit: 4
   end
 
   create_table "members", force: :cascade do |t|
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20171121052115) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "organization_id",        limit: 4
+    t.integer  "kudos_count",            limit: 4
   end
 
   add_index "members", ["email"], name: "index_members_on_email", unique: true, using: :btree
