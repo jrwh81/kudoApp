@@ -8,4 +8,5 @@ class Member < ActiveRecord::Base
   has_many :kudos
   belongs_to :organization
 
+  
 end

@@ -1,3 +1,3 @@
 class Kudo < ActiveRecord::Base
-   belongs_to :member  
+   belongs_to :member
 end

@@ -1,5 +1,10 @@
 <nav class="navbar navbar-light bg-faded navbar navbar-light bg-faded">
-  <%= link_to("Kudos!", root_path, :class => "navbar-brand", :id =>"nav-logo-font") %>
+  <% if !current_member %>
+    <%= link_to("Kudos!", root_path, :class => "navbar-brand", :id =>"nav-logo-font") %>
+  <% else %>
+    <%= link_to("Kudos!", dashboard_path, :class => "navbar-brand", :id =>"nav-logo-font") %>
+  <% end %>
+
   <%= link_to("Welcome, #{current_member.email}!", destroy_member_session_path, method: :delete, :class => "navbar-brand") if current_member %>
   <% if !current_member %>
   <%= link_to("Sign Up", new_member_registration_path, :class => "navbar-brand") %>

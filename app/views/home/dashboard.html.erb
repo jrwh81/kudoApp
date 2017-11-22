@@ -32,7 +32,7 @@
 <div class="row copy-text">
    <div class="col-md-6 offset-md-3">
       <h2 style="text-align: center">Give a Kudos!</h2>
-      <h3 style="text-align: center">Count - <%= current_member.kudos_count %></h3>
+      <h3 style="text-align: center">Count - <%= current_member.count_kudos %></h3>
       <% if current_member.organization.members.count > 0 %>
          <table class="table">
            <thead>
@@ -47,7 +47,7 @@
              <% unless m == current_member %>
                 <tr>
                   <td><%= Member.find(m.id).email %></td>
-                  <td ><%= m.kudos_count %></td>
+                  <td ><%= m.count_kudos %></td>
                   <td><%= link_to("Give Kudos!", new_kudo_path(member_id: m.id), :class => "copy-text") %></td>
                 </tr>
              <% end %>
