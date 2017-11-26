@@ -1,10 +1,15 @@
-<div class="row">
-   <div class="col-md-6 offset-md-3">
+<div class="row justify-content-md-center">
+   <div class="col-md-12">
       <h1 style="text-align: center"><%= @organization %> - Dashboard</h1>
-   </div>  
+   </div>
 </div>
-<div class="row copy-text">
-   <div class="col-md-6 offset-md-3">
+<div class="row justify-content-md-center">
+   <div class="col-md-12">
+   <h3 style="text-align: center">You Have <%= current_member.kudos_to_give %> Kudos! to Give</h3>
+   </div>     
+</div>
+<div class="row justify-content-md-center copy-text">
+   <div class="col-md-5">
       <h2 style="text-align: center">My Kudos!</h2>
       <% if !@kudos.blank? %>
          <table class="table">
@@ -28,11 +33,8 @@
       <% end %>
       <br />         
    </div>
-</div>
-<div class="row copy-text">
-   <div class="col-md-6 offset-md-3">
+   <div class="col-md-5">
       <h2 style="text-align: center">Give a Kudos!</h2>
-      <h3 style="text-align: center">Count - <%= current_member.count_kudos %></h3>
       <% if current_member.organization.members.count > 0 %>
          <table class="table">
            <thead>
@@ -47,7 +49,7 @@
              <% unless m == current_member %>
                 <tr>
                   <td><%= Member.find(m.id).email %></td>
-                  <td ><%= m.count_kudos %></td>
+                  <td ><%= m.kudos.count %></td>
                   <td><%= link_to("Give Kudos!", new_kudo_path(member_id: m.id), :class => "copy-text") %></td>
                 </tr>
              <% end %>

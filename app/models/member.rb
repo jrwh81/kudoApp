@@ -8,5 +8,9 @@ class Member < ActiveRecord::Base
   has_many :kudos
   belongs_to :organization
 
-  
+  after_save :kudos_to_give
+
+   def kudos_to_give
+      self.kudos_count - 1
+   end
 end
